@@ -3,7 +3,7 @@ def max_odd(lis):
     res = None
     for i in lis:
         if type(i) == int or type(i) == float:
-            if i % 3 == 0 and abs(i) >= maxi:
+            if i % 3 == 0 and abs(i) > maxi:
                 maxi = int(i)
                 res = maxi
     return res
