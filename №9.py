@@ -13,11 +13,7 @@ def connect_dicts(hash1, hash2):
                         res.append((key, val))
                         temp_dict1.pop(key)
                         temp_dict2.pop(k)
-                    elif first_sum < second_sum:
-                        res.append((k, v))
-                        temp_dict2.pop(k)
-                        temp_dict1.pop(key)
-                    elif first_sum == second_sum:
+                    else:
                         res.append((k, v))
                         temp_dict2.pop(k)
                         temp_dict1.pop(key)
