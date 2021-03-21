@@ -24,7 +24,8 @@ def connect_dicts(hash1, hash2):
     rest = res + temp_arr1 + temp_arr2
     r = list(filter(lambda x: x[1] >= 10, rest))
     r.sort(key=lambda x: x[1])
-    return r
+    y = dict(r)
+    return y
 
 
 
