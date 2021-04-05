@@ -7,8 +7,17 @@ def multiply_numbers(inputs=None):
     if type(inputs) is list:
         re = 1
         for i in inputs:
+
             if type(i) is int:
                 re *= i
+                isnum = re
+            elif type(i) is float:
+                temp = multiply_numbers(i)
+                re *= temp
+                isnum = re
+            elif type(i) is list:
+                temp = multiply_numbers(i)
+                re *= temp
                 isnum = re
         return isnum
 
