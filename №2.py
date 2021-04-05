@@ -3,7 +3,7 @@ def coincidence(array=None, rang=None):
         return []
     res = []
     for i in array:
-        if (isinstance(i, int) or isinstance(i, float)) and i >= rang[0] and i < rang[-1]:
+        if (isinstance(i, int) or isinstance(i, float)) and i >= rang[0] and i <= rang[-1]:
            res.append(i)
     return res
 
