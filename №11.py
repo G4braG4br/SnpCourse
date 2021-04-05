@@ -19,7 +19,7 @@ class Dessert:
     def healthy(self):
         return self.get_calories() < 200
 
-    def delicious(self):
+    def is_delicious(self):
         return True
 
 
@@ -27,10 +27,10 @@ class Dessert:
 cake = Dessert("cake", 350)
 print(f"{cake.get_name()} -- {cake.get_calories()}")
 print(f"Healthy: {cake.healthy()}")
-print(f"Delicious: {cake.delicious()}")
+print(f"Delicious: {cake.is_delicious()}")
 cake.set_calories(140)
 print()
 print(f"{cake.get_name()} -- {cake.get_calories()}")
 print(f"Healthy: {cake.healthy()}")
-print(f"Delicious: {cake.delicious()}")
+print(f"Delicious: {cake.is_delicious()}")
 print()
