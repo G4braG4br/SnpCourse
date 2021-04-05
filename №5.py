@@ -1,14 +1,14 @@
 import datetime
 
-def date_in_future(integer: int):
+def date_in_future(integer: int=None):
+    if integer is None:
+        return None
     dt_now = datetime.datetime.now()
     if type(integer) != int:
-        return f"{dt_now.date().day:>02d}-{dt_now.date().month:>02d}-{dt_now.date().year:<4d} " \
-               f"{dt_now.time().hour:>02d}:{dt_now.time().minute:>02d}:{dt_now.time().second:>02d}"
+        return f"{datetime.datetime.now():%d-%m-%y %H:%M:%S}"
     res = dt_now + datetime.timedelta(days=integer)
     #res = datetime.datetime(res.date().year, month=integer, day=res.date().day)
-    return f"{res.date().day:>02d}-{res.date().month:>02d}-{res.date().year:<4d} " \
-           f"{res.time().hour:>02d}:{res.time().minute:>02d}:{res.time().second:>02d}"
+    return f"{res:%d-%m-%y %H:%M:%S}"
 
 
 """
