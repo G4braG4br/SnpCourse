@@ -19,7 +19,7 @@ class Dessert:
     def healthy(self):
         return self.get_calories() < 200
 
-    def delicious(self):
+    def is_delicious(self):
         return True
 
 
@@ -36,12 +36,12 @@ class JellyBean(Dessert):
     def set_flavor(self, new_flavor):
         self.flavor = new_flavor
 
-    def delicious(self):
-        return Dessert.delicious(self) and self.get_flavor() != "black licorice"
+    def is_delicious(self):
+        return self.get_flavor() != "black licorice"
 
 
 
 jellybeen = JellyBean("marml", 50, "black licorice")
 print(f"{jellybeen.get_name()} -- {jellybeen.get_calories()}")
 print(f"Healthy: {jellybeen.healthy()}")
-print(f"Delicious: {jellybeen.delicious()}")
+print(f"Delicious: {jellybeen.is_delicious()}")
