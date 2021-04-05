@@ -1,11 +1,11 @@
-def is_palindrome(string: str=None):
+def is_palindrome(string=None):
     if isinstance(string, type(None)):
         return False
     string = str(string)
     a = ''.join(i for i in string if i.isalnum()).upper()
     if a == "" or len(a) == 1:
         return True
-    for i in range(len(a) - 1):
+    for i in range((len(a) - 1)//2):
         if a[i] != a[-i-1]:
             return False
     return True
