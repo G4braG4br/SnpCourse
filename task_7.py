@@ -1,38 +1,34 @@
-def combine_anagrams(words_array):
-    res = []
-    temp_array = ' '.join(words_array).split(' ')
-    index_currentWord = 0
-    while temp_array != []:
-        currentWord = temp_array[0]
-        temp_array.pop(0)
-        res.append([currentWord])
-        a = set()
-        for j in currentWord:
-            a.add(j)
-        lenOfCurWord = len(currentWord)
-        g = temp_array.copy()
-        # Цикл по словам в temp_array
-        te = set()
-        for i in range(len(g)):
-            # Флаг для проверки на анаграмму
-            flag = True
-            # Цикл по буквам в слове
 
-            for k in range(len(g[i])):
-                # Если хотя бы одна буква не сходится, то пропускаем слово
-                if g[i][k] not in a:
-                    #Не подходит
-                    flag = False
-                    break
-            # Слово подошло и его можно исключить из temp_array
-            if flag and lenOfCurWord == len(g[i]):
-                te.add(i)
-                res[index_currentWord].append(g[i])
-        temp_array = [temp_array[i] for i in range(len(temp_array)) if i not in te]
-        index_currentWord += 1
-    return res
+def combine_anagrams(array_of_words=None):
+    if array_of_words is None or len(array_of_words) <= 1:
+        return None
+    result_array = []
+    index_of_current_word = 0
+    while array_of_words != []:
+        current_word = array_of_words[0]
+        temp_current_word = ''.join(sorted(array_of_words[0].lower()))
+        array_of_words.pop(0)
+        result_array.append([current_word])
+        indexes_of_words_to_remove = []
+        for i in range(len(array_of_words)):
+            if ''.join(sorted(array_of_words[i].lower())) == temp_current_word:
+                indexes_of_words_to_remove.append(i)
+                result_array[index_of_current_word].append(array_of_words[i])
+            else:
+                continue
+        if indexes_of_words_to_remove != []:
+            array_of_words = [array_of_words[i] for i in range(len(array_of_words)) if i not in indexes_of_words_to_remove]
+        index_of_current_word += 1
+
+    return result_array
 
 
 
-print(combine_anagrams(["cars", "for", "potatoes", "racs", "four", "scar","creams", "scream"]))
-#=> [ ["cars", "racs", "scar"], ["four"], ["for"],["potatoes"], ["creams", "scream"] ]
+print(combine_anagrams(["cars", "for", "potatoes", "racs", "four", "scar", "creams", "scream"]))
+# => [ ["cars", "racs", "scar"], ["four"], ["for"],["potatoes"], ["creams", "scream"] ]
+print(combine_anagrams(['cara', 'arca', 'lava', 'alava', 'val', 'lav']))
+# => [['cara', 'arca'], ['lava'], ['alava'], ['val', 'lav']]
+print(combine_anagrams(['agal', 'aggl'])) # => [['agal'], ['aggl']])
+print(combine_anagrams(['', '']))
+print(combine_anagrams())
+
