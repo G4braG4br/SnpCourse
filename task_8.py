@@ -1,41 +1,40 @@
-def multiply_numbers(inputs=None):
+def multiply_numbers(*inputs):
     isnum = None
+    forint = 1
 
-    if inputs is None:
-        return None
+    for i in inputs:
 
-    if type(inputs) is list:
-        re = 1
-        for i in inputs:
+        if type(i) is list or type(i) is tuple or type(i) is set:
+            for el in i:
 
-            if type(i) is int:
-                re *= i
-                isnum = re
-            elif type(i) is float:
-                temp = multiply_numbers(i)
-                re *= temp
-                isnum = re
-            elif type(i) is list:
-                temp = multiply_numbers(i)
-                re *= temp
-                isnum = re
-        return isnum
+                if type(el) is int:
+                    forint *= el
+                    isnum = forint
+                elif type(el) is float:
+                    temp = multiply_numbers(el)
+                    forint *= temp
+                    isnum = forint
+                elif type(el) is list:
+                    temp = multiply_numbers(el)
+                    forint *= temp
+                    isnum = forint
 
-    if type(inputs) is float:
-        lis = str(inputs)
-        res = 1
-        for i in lis:
-            if i.isdigit():
-                res *= int(i)
-                isnum = res
-        return isnum
+        if type(i) is int:
+            forint *= i
+            isnum = forint
 
-    if type(inputs) is str:
-        res = 1
-        for i in inputs:
-            if i.isdigit():
-                res *= int(i)
-                isnum = res
+        if type(i) is float:
+            lis = str(i)
+            for el in lis:
+                if el.isdigit():
+                    forint *= int(el)
+                    isnum = forint
+
+        if type(i) is str:
+            for el in i:
+                if el.isdigit():
+                    forint *= int(el)
+                    isnum = forint
 
     return isnum
 
@@ -47,3 +46,4 @@ print(multiply_numbers('1234')) # => 24
 print(multiply_numbers('sssdd34')) # => 12
 print(multiply_numbers(2.3)) # => 6
 print(multiply_numbers([5, 6, 4])) # => 120
+print(multiply_numbers(1, [[[3]]], "@34", 3, [2.2, 2], (2, 3.3), {2, 3})) # => 93 312
