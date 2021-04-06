@@ -1,5 +1,5 @@
 def coincidence(array=None, rang=None):
-    if rang is None or array is None:
+    if rang is None or array is None or len(rang) == 0:
         return []
     res = []
     for i in array:
