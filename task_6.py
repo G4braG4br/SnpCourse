@@ -2,11 +2,11 @@ def rps_game_winner(array):
     variants = ["S", "P", "R"]
     strategy = {"S": 2, "P": 1, "R": 0}
     if len(array) > 2 or len(array) < 2:
-        return "WrongNumberOfPlayersError"
+        raise Exception("WrongNumberOfPlayersError")
     if len(array[0]) < 2 or len(array[1]) < 2:
-        return "NoSuchStrategyError"
+        raise Exception("NoSuchStrategyError")
     if array[0][1] not in variants or array[1][1] not in variants:
-        return "NoSuchStrategyError"
+        raise Exception("NoSuchStrategyError")
     else:
         diff = strategy[array[0][1]] - strategy[array[1][1]]
         if diff == -1 or diff == 2:
