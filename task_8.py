@@ -29,6 +29,11 @@ def multiply_numbers(*inputs):
             
     return isnum
 
+
+def multiply_numbers2(*args):
+    return reduce(lambda x, y: x * y, list(filter(lambda x: x!= 1, list(map(lambda x: int(x) if x.isdigit() else 1, str(args)))))) if list(filter(lambda x: x!= 1, list(map(lambda x: int(x) if x.isdigit() else 1, str(args))))) != [] else None
+
+
 #print(multiply_numbers([[[[[2]]]], "@34", 3, [2.2, 2], (2, 3.3), {2, 3}])) # => 62 208
 #print(multiply_numbers({2: 3}))
 
