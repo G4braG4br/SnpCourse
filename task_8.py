@@ -1,4 +1,5 @@
 from collections.abc import Iterable
+from functools import reduce
 
 
 def multiply_numbers(*inputs):
