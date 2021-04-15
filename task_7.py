@@ -1,6 +1,6 @@
 
 def combine_anagrams(array_of_words=None):
-    if array_of_words is None:
+    if array_of_words is None or array_of_words == []:
         return []
     if len(array_of_words) <= 1:
         return [array_of_words]
