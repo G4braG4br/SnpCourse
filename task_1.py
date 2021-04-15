@@ -1,14 +1,8 @@
 def is_palindrome(string=None):
-    if isinstance(string, type(None)):
+    if string is None:
         return False
-    string = str(string)
-    a = ''.join(i for i in string if i.isalnum()).upper()
-    if a == "" or len(a) == 1:
-        return True
-    for i in range((len(a) - 1)//2):
-        if a[i] != a[-i-1]:
-            return False
-    return True
+    a = ''.join(i for i in str(string) if i.isalnum()).upper()
+    return a == a[::-1]
 
 
 print(is_palindrome("A man, a plan, a canal -- Panama"))
