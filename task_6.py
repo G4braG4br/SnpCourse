@@ -6,8 +6,8 @@ class NoSuchStrategyError(Exception):
    pass
 
 
-def rps_game_winner(array):
-   if array is None:
+def rps_game_winner(array=None):
+    if array is None:
         raise WrongNumberOfPlayersError()
     variants = ["S", "P", "R"]
     strategy = {"S": 2, "P": 1, "R": 0}
