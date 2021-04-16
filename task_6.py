@@ -7,6 +7,8 @@ class NoSuchStrategyError(Exception):
 
 
 def rps_game_winner(array):
+   if array is None:
+        raise WrongNumberOfPlayersError()
     variants = ["S", "P", "R"]
     strategy = {"S": 2, "P": 1, "R": 0}
     if len(array) > 2 or len(array) < 2:
